@@ -1,0 +1,154 @@
+<ScreenManage>:
+	Home:
+	SignUp:
+<Home>:
+	name:'Home'
+	FloatLayout:
+		TextInput:
+			pos_hint:{'center_x':0.5,'center_y':0.5}
+			size_hint:0.5,0.05
+			multiline:False
+			id:username
+			focus:True
+			write_tab:False
+			
+		Label:
+			size_hint:0.5,0.1
+			pos_hint:{'center_x':0.5,'center_y':0.6}
+			text:'Username'
+			
+		TextInput:
+			pos_hint:{'center_x':0.5,'center_y':0.3}
+			size_hint:0.5,0.05
+			multiline:False
+			id:password
+			password:True
+		
+		Label:
+			size_hint:0.5,0.1
+			pos_hint:{'center_x':0.5,'center_y':0.4}
+			text:'Password'
+		Button:
+			size_hint:0.1,0.01
+			pos_hint:{'center_x':0.4,'center_y':0.2}
+			text:'LOG IN'
+			on_release:root.LogIn(username.text,password.text)
+		Button:
+			size_hint:0.1,0.01
+			pos_hint:{'center_x':0.6,'center_y':0.2}
+			text:'SIGN UP'
+			on_release:root.manager.current='sign'
+			
+<SignUp>:
+	name:'sign'
+	RelativeLayout:
+		TextInput:
+			pos_hint:{'x':0.1,'center_y':0.8}
+			size_hint:0.25,0.05
+			multiline:False
+			write_tab:False
+			id:username
+		Label:
+			pos_hint:{'x':0.15,'center_y':0.87}
+			size_hint:0.25,0.05
+			text_size:self.size
+			text:'Username'
+			halign:'left'
+			
+		TextInput:
+			pos_hint:{'x':0.7,'center_y':0.8}
+			size_hint:0.25,0.05
+			multiline:False
+			password:True
+			write_tab:False
+			id:password
+		Label:
+			pos_hint:{'x':0.75,'center_y':0.87}
+			size_hint:0.25,0.05
+			text_size:self.size
+			text:'Password'
+			halign:'left'
+			
+		Label:
+			pos_hint:{'center_x':0.5,'center_y':0.5}
+			size_hint:0.25,0.05
+			text:'Age'
+		TextInput:
+			pos_hint:{'x':0.48,'center_y':0.45}
+			size_hint:0.05,0.05
+			multiline:False
+			write_tab:False
+			id:age
+		Label:
+			pos_hint:{'x':0.15,'center_y':0.2}
+			size_hint:0.25,0.05
+			text_size:self.size
+			text:'Blood Group'
+			halign:'left'
+		TextInput:
+			pos_hint:{'x':0.1,'center_y':0.13}
+			size_hint:0.25,0.05
+			multiline:False
+			write_tab:False
+			id:btype
+		Label:
+			pos_hint:{'x':0.75,'center_y':0.2}
+			size_hint:0.25,0.05
+			text_size:self.size
+			text:'Location'
+			halign:'left'
+		TextInput:
+			pos_hint:{'x':0.7,'center_y':0.13}
+			size_hint:0.25,0.05
+			multiline:False
+			write_tab:False
+			id:local
+			
+		Button:
+			pos_hint:{'center_x':0.5, 'top':0.1}
+			size_hint:0.2,0.1
+			text:'Sign Up'
+			on_press:root.signup(username.text,password.text,age.text,btype.text,local.text)
+		
+		
+		
+		
+		
+
+<LoginFail>:
+	title:'Login Failed'
+	size_hint:0.74,0.74
+	RelativeLayout:
+		Label:
+			pos_hint:{'center_x':0.5,'center_y':0.5}
+			text_size:self.size
+			text:'Please check your internet connection or your login information and try again'
+			valign:'middle'
+			halign:'center'
+		
+	
+<Window>:
+	RelativeLayout:
+		canvas.before:
+			Color:
+				rgba:0.55,0.705,0.98,1
+			Rectangle:
+				pos:self.pos
+				size:self.size
+		Label:
+			size_hint:0.5,0.1
+			pos_hint:{'center_x':0.5,'top':1}
+			text:root.Pers_UID
+			canvas.before:
+				Color:
+					rgba:0.55,0.705,0.98,0.9
+				Rectangle:
+					pos:self.pos
+					size:self.size
+					
+		Label:
+			size_hint:0.2,0.2
+			pos_hint:{'center_x':0.5,'center_y':0.5}
+			text:root.Location
+	
+	
